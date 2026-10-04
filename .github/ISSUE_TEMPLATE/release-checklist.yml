@@ -1,0 +1,14 @@
+name: Release checklist
+description: Create an issue with the shared release checklist.
+body:
+  - type: checkboxes
+    id: release-checklist
+    attributes:
+      label: Release checklist
+      options:
+        - label: All issues closed
+        - label: Refactoring complete
+        - label: CodeScope complete
+        - label: Marketing review complete
+        - label: QA review complete
+        - label: DevOps release complete

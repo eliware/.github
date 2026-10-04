@@ -32,7 +32,7 @@ Run `npm ci` from the repository root to install the validation tooling.
 
 ## Usage
 
-Use the organization-wide community health content maintained here as reusable defaults for Eliware repositories. Keep project-specific guidance in the repository that owns the project, and follow its local instructions where they apply.
+Use the organization-wide community health content maintained here as reusable defaults for Eliware repositories. Use the [release checklist issue form](.github/ISSUE_TEMPLATE/release-checklist.yml) when tracking a release. Keep project-specific guidance in the repository that owns the project, and follow its local instructions where they apply.
 
 Documentation: [specifications](specs/README.md)
 

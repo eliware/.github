@@ -10,7 +10,7 @@ These instructions apply repository-wide; a nearer `AGENTS.md` may add guidance 
 
 ## Layout
 
-Required structure and files: `README.md` is the repository entry point. `AGENTS.md` contains contributor instructions. `specs/README.md` indexes repository directives under `specs/`. `.github/workflows/ci.yaml` validates this repository. `.knit/deploy.yaml` defines the repository's Knit validation and dev deployment configuration. Keep indexes and links aligned with files on disk.
+Required structure and files: `README.md` is the repository entry point. `AGENTS.md` contains contributor instructions. `specs/README.md` indexes repository directives under `specs/`. `.github/ISSUE_TEMPLATE/release-checklist.yml` provides the minimal shared release checklist form. `.github/workflows/ci.yaml` validates this repository. `.knit/deploy.yaml` defines the repository's Knit validation and dev deployment configuration. Keep indexes and links aligned with files on disk.
 
 ## Development
 
