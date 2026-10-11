@@ -1,7 +1,7 @@
-version: "11.0"
+version: "12.0"
 description: Eliware organization-wide GitHub community health files and profile.
 directives:
-  - id: E-1
+  - id: E-1.0
     dos:
       - This repository owns reusable, organization-wide GitHub community health files and profile content for Eliware repositories.
       - Keep shared content reusable across repositories and defer project-specific requirements, implementation, and settings to their owning repositories.
