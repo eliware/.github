@@ -2,37 +2,35 @@
 
 ## Project
 
-This repository is `eliware/.github`.
-
-It stores shared GitHub files for Eliware repositories.
+This repository provides shared GitHub files for Eliware repositories.
 
 ## Scope and boundaries
 
-Use README.md for repository purpose, scope, and ownership.
+This repository owns shared defaults. Each target repository owns its project rules, code, and settings.
 
 ## Layout
 
-Use README.md and specs/README.md to find repository files.
+Read [specs/README.md](specs/README.md) to find repository directives.
 
 ## Development
 
-Keep each source and test module focused on one responsibility.
+Keep each source and test module focused on one purpose.
 
 ## Validation
 
 Use Node.js 26 or later and npm 12 or later.
 Use native ESM for maintained JavaScript modules.
-Run `npm test` for aggregate validation.
+Run `npm test` for aggregate checks.
 Run `npm run lint` for lint checks.
 Run `npm run audit` for dependency checks.
 Run `npm run format` to format files.
-Run `npm run format:check` to check formatting.
+Run `npm run format:check` to check file format.
 
 ## Security
 
-Keep credentials, secret values, private data, and runtime state out of Git.
+Keep credentials, secrets, private data, and runtime state out of Git.
 
 ## Changes
 
-Keep changes within this repository scope.
-Use Eliware Operations for approval before external changes.
+Get approval through Eliware Operations before external changes.
+Do not treat validation as release or deploy approval.

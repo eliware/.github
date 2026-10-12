@@ -20,48 +20,36 @@ Eliware organization-wide GitHub community health files and profile.
 
 ## Features
 
-This repository provides reusable, organization-wide GitHub community health files and profile content for Eliware repositories.
-Each target repository remains responsible for project-specific requirements, implementation, and settings.
+This repository provides shared GitHub community health files and profile content. Each target repository owns its project rules, code, and settings.
 
 ## Requirements
 
-Use Node.js 26 or later and npm 12 or later for repository validation.
-This repository has no application runtime settings or configuration files.
-Package metadata and CLI arguments are not runtime configuration.
+Use Node.js 26 or later and npm 12 or later for repository checks.
 
 ## Setup
 
-Run `npm ci` to install the validation CLI.
-Run `npm test` to validate the repository.
+Run `npm ci` from the repository root.
 
 ## Usage
 
-Use the organization-wide community health content maintained here as reusable defaults for Eliware repositories.
-Use the [release checklist issue form](.github/ISSUE_TEMPLATE/release-checklist.yml) when you track a release.
-Keep project-specific guidance in the repository that owns the project.
-Use [specifications](specs/README.md) for this repository's directives.
+Use these shared files as defaults for Eliware repositories.
+Read [repository specifications](specs/README.md) for this repository's directives.
 
 ## Development
 
-Read [AGENTS.md](AGENTS.md), applicable specifications, and authoritative documentation before you change files.
-Keep organization-wide defaults concise and reusable.
-Link to the owning repository for detailed requirements and procedures.
+Read [AGENTS.md](AGENTS.md) before you change files.
 
 ## Testing
 
-Run `npm test` for aggregate validation.
-Run `npm run lint`, `npm run audit`, `npm run format`, or `npm run format:check` for individual stages.
+Run `npm test` for aggregate checks.
 
 ## Troubleshooting
 
-Use Node.js 26 or later.
-Run `npm ci` after dependency changes.
-Review the reported rule and file path when validation fails.
+Run `npm ci` after dependency changes. Check the failed rule and file path.
 
 ## Security
 
-Keep credentials, secrets, decrypted data, private information, runtime output, and machine-specific state outside version control.
-Do not place secret values in community health files or structured records.
+Keep credentials, secrets, private data, and runtime state out of Git.
 
 ## Support
 
