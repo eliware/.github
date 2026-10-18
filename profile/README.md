@@ -8,7 +8,7 @@ Eliware builds developer tools and software projects across Node.js libraries, D
 
 [Browse all Eliware repositories](https://github.com/orgs/eliware/repositories).
 
-## Join the community
+## Community
 
 [![Discord](https://eliware.org/logos/discord_96.png)](https://discord.gg/M6aTR9eTwN)
 

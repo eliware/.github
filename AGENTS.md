@@ -20,6 +20,7 @@ Keep each source and test module focused on one purpose.
 
 Use Node.js 26 or later and npm 12 or later.
 Use native ESM for maintained JavaScript modules.
+
 Run `npm test` for aggregate checks.
 Run `npm run lint` for lint checks.
 Run `npm run audit` for dependency checks.
@@ -32,5 +33,5 @@ Keep credentials, secrets, private data, and runtime state out of Git.
 
 ## Changes
 
-Get approval through Eliware Operations before external changes.
-Do not treat validation as release or deploy approval.
+Receive approval through Eliware Operations before external changes.
+Do not use validation as approval to release or deploy.

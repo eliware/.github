@@ -1,11 +1,14 @@
-version: "12.0"
-description: Eliware organization-wide GitHub community health files and profile.
+version: "13.0"
+description: Eliware GitHub community health files and organization profile.
 directives:
   - id: E-1.0
     dos:
-      - This repository owns reusable, organization-wide GitHub community health files and profile content for Eliware repositories.
-      - Keep shared content reusable across repositories and defer project-specific requirements, implementation, and settings to their owning repositories.
-      - Link to the authoritative Eliware repository for detailed requirements and procedures instead of duplicating them here.
+      - This repository owns GitHub community health files and the Eliware organization profile.
+      - Keep shared files general.
+      - Let each target repository set its project rules, code, and settings.
+      - Link to the Eliware repository that owns each rule or process.
+      - Keep those rules in their owning repository.
     donts:
-      - Do not present shared defaults as overriding a target repository's project-specific requirements or settings.
-      - Do not include credentials, secrets, private operational details, or machine-specific state in tracked content.
+      - Do not let shared defaults replace target repository rules or settings.
+      - Keep credentials, secrets, and private operational details out of tracked content.
+      - Keep machine-specific state out of tracked content.
