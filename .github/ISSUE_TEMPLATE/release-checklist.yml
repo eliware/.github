@@ -5,8 +5,9 @@ body:
   - type: markdown
     attributes:
       value: >-
-        Create this issue after TagIt preflight passes. Follow the project release procedure
-        and [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
+        After TagIt preflight passes, Marketing completes its first presentation and branding
+        inspection. Marketing creates or initializes this issue after that inspection. Follow the
+        project procedure and [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
         This checklist records readiness. It does not grant release or deployment authorization.
         Keep this issue open until each required stage and record is complete.
 
@@ -84,8 +85,10 @@ body:
     id: marketing-evidence
     attributes:
       label: Marketing records
-      description: Add the inspection result and links to issues for its findings.
-      placeholder: Include the inspected commit SHA and inspection result.
+      description: Record the first inspection result, candidate commit, and links to any findings.
+      placeholder: Include the full commit SHA and initial inspection result.
+    validations:
+      required: true
 
   - type: checkboxes
     id: qa
