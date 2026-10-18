@@ -1,14 +1,145 @@
 name: Release checklist
-description: Create an issue with the shared release checklist.
+description: Record release inspections, authorization, publication, deployment, and results.
+title: "Release checklist"
 body:
-  - type: checkboxes
-    id: release-checklist
+  - type: markdown
     attributes:
-      label: Release checklist
+      value: >-
+        Create this issue after TagIt preflight passes. Follow the project release procedure
+        and [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
+        This checklist records readiness. It does not grant release or deployment authorization.
+        Keep this issue open until each required stage and record is complete.
+
+  - type: checkboxes
+    id: authorization-boundaries
+    attributes:
+      label: Authorization boundaries
+      description: Follow Eli's instructions and the owning release procedure.
       options:
-        - label: All issues closed
-        - label: Refactoring complete
-        - label: CodeScope complete
-        - label: Marketing review complete
-        - label: QA review complete
-        - label: DevOps release complete
+        - label: Use Eli's direct instruction as approval for each named action that follows its procedure.
+        - label: Do not request the same approval again for an action Eli named.
+        - label: If an unexpected result falls outside the instruction or procedure, stop and ask Eli.
+        - label: Do not run recovery, rollback, or a forward fix without Eli's direction.
+        - label: Do not treat checklist completion as release or production authorization.
+
+  - type: textarea
+    id: release-scope
+    attributes:
+      label: Release scope
+      description: Name the repository, version, project owner, target, and release scope.
+      placeholder: Include the change classification and reason.
+    validations:
+      required: true
+
+  - type: input
+    id: candidate-commit
+    attributes:
+      label: Candidate commit
+      description: Record the full commit SHA that passed TagIt preflight.
+      placeholder: Full commit SHA
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight and candidate readiness
+      description: Complete these steps before Marketing inspects the candidate.
+      options:
+        - label: Resolve all open release-scope issues in the owning repository.
+        - label: Create and complete a separate issue for required refactoring.
+        - label: Run CodeScope all until two consecutive runs show zero issues and suggestions.
+        - label: For each result, repair a true defect or update its specification, test, or documentation.
+        - label: Do not commit during the CodeScope loop.
+        - label: Run full npm test after the CodeScope loop passes.
+        - label: Push the candidate through the approved workflow and confirm CI for its commit.
+        - label: Run TagIt preflight after CI passes.
+        - label: For minor scope, confirm that behavior, architecture, dependencies, and CodeScope results stay unchanged.
+        - label: For minor scope, skip refactoring and CodeScope only.
+        - label: For minor scope, run focused validation, npm test, push, CI, TagIt, and new QA approval.
+        - label: After a substantial change, repeat issue resolution, refactoring, CodeScope, npm test, push, CI, and TagIt.
+
+  - type: textarea
+    id: preflight-records
+    attributes:
+      label: Preflight records
+      description: Link the issue, CodeScope results, test result, CI run, and TagIt result.
+      placeholder: Paste links to the records and the candidate commit SHA.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: marketing
+    attributes:
+      label: Marketing inspection
+      description: Complete Marketing inspection before QA inspection.
+      options:
+        - label: Marketing inspected presentation and branding for the candidate commit.
+        - label: Resolve Marketing findings in issues in their owning repositories.
+        - label: With owner approval, let Marketing make small presentation fixes within its scope.
+        - label: If a change affects presentation or branding, repeat Marketing inspection before QA.
+        - label: After Marketing changes, run validation, push the candidate, confirm CI, and rerun TagIt.
+
+  - type: textarea
+    id: marketing-evidence
+    attributes:
+      label: Marketing records
+      description: Add the inspection result and links to issues for its findings.
+      placeholder: Include the inspected commit SHA and inspection result.
+
+  - type: checkboxes
+    id: qa
+    attributes:
+      label: QA inspection
+      description: Ask QA to inspect the final candidate after Marketing completes.
+      options:
+        - label: QA inspected applicable conventions on the final candidate commit.
+        - label: Record QA approval for the exact final commit.
+        - label: Record QA findings as issues in their owning repositories.
+        - label: Keep this release issue open while QA findings remain unresolved.
+        - label: If a later change affects presentation or branding, repeat Marketing inspection before QA.
+
+  - type: textarea
+    id: qa-evidence
+    attributes:
+      label: QA records
+      description: Add the approved commit SHA and links to the QA inspection and follow-up issues.
+      placeholder: Include the full commit SHA and inspection result.
+
+  - type: checkboxes
+    id: approval-and-publication
+    attributes:
+      label: Release approval and publication
+      description: Complete these steps after Marketing and QA sign off on the same commit.
+      options:
+        - label: Eli gave release authorization for the commit that Marketing and QA inspected.
+        - label: DevOps published the release after Eli's authorization.
+        - label: DevOps recorded publication details in this issue.
+        - label: DevOps updated the Docs repository map.
+
+  - type: textarea
+    id: approval-publication-records
+    attributes:
+      label: Authorization and publication records
+      description: Add Eli's authorization, publication details, and the updated repository map.
+      placeholder: Record release version, publication commit, and relevant links.
+
+  - type: checkboxes
+    id: deployment-and-closure
+    attributes:
+      label: Deployment and closure
+      description: Deployment requires Eli's approval after DevOps publication.
+      options:
+        - label: Eli gave deployment handoff authorization after publication.
+        - label: GitOps monitored the rollout and stopped it when required.
+        - label: GitOps recorded rollout results or opened follow-up issues.
+        - label: For a production image change, DevOps opened a GitOps issue with the image digest.
+        - label: For a production image change, GitOps applied it only after Eli's direction.
+        - label: DevOps closed this issue after all checklist items and records were complete.
+
+  - type: textarea
+    id: deployment-records
+    attributes:
+      label: Deployment records
+      description: Add Eli's handoff authorization, rollout results, and any follow-up issues.
+      placeholder: Record the final deployment status and links.
