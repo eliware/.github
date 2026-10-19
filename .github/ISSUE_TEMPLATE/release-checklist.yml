@@ -5,39 +5,41 @@ body:
   - type: markdown
     attributes:
       value: >-
-        After TagIt preflight passes, Marketing completes its first presentation and branding
-        inspection. Marketing creates or initializes this issue after that inspection. Follow the
-        project procedure and [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
-        The assigned role completes its section and links records. A blank box is incomplete.
-        Explain why a step does not apply in the records fields. This checklist does not
+        The project agent creates this issue at the start of release preparation, before readiness
+        checks. Unchecked boxes are expected during preparation. Complete required gates before QA
+        handoff and publication. Include the release version in the issue title. The assigned role
+        completes its section and links records. Follow [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
+        Use the repository name as the project owner. Explain why a step does not apply in the
+        records fields. A blank required box blocks handoff. This checklist does not
         authorize release or deployment. Keep this issue open until all required records are complete.
 
   - type: textarea
     id: release-scope
     attributes:
       label: Release scope
-      description: Name the repository, version, project owner, target, and release scope.
-      placeholder: Include the change class, release scope, and why it applies.
+      description: Name the repository, version, target, and release scope. Use the repository name as the project owner.
+      placeholder: Include the repository name as project owner and describe the release scope.
     validations:
       required: true
 
   - type: input
     id: candidate-commit
     attributes:
-      label: Candidate commit
-      description: Record the full commit SHA that passed TagIt preflight.
-      placeholder: Full commit SHA
+      label: Current candidate commit
+      description: Record the current full commit SHA when you open this issue. Update it after each candidate change.
+      placeholder: Full current commit SHA
     validations:
       required: true
 
   - type: dropdown
     id: change-class
     attributes:
-      label: Change class
-      description: Classify the candidate under Operations directive E-12.6.
+      label: Release class
+      description: Derive the class from the target version. Set every v13 release to major.
       options:
-        - Substantial
+        - Major
         - Minor
+        - Patch
     validations:
       required: true
 
@@ -45,24 +47,23 @@ body:
     id: preflight
     attributes:
       label: Preflight and candidate readiness
-      description: The owner completes these gates before QA inspection. Link results in Preflight records.
+      description: The project agent completes these gates before QA inspection. Link results in Preflight records.
       options:
         - label: Resolve all open release-scope issues and link the issues.
-        - label: Record the refactoring result and link its issue, or state why it does not apply.
-        - label: Record two clean CodeScope runs, or explain a permitted minor-change skip.
-        - label: Resolve each CodeScope finding or record that no repair was required.
+        - label: For applications and libraries, complete refactoring. For other profiles, record why it does not apply.
+        - label: Record CodeScope status as Eli directs. Mark it complete when Eli says it is done.
         - label: Record focused validation and full npm test results.
         - label: Push the candidate and link passing CI for its exact commit.
         - label: Pass TagIt preflight for the exact candidate commit.
-        - label: Record the change class and why it applies.
+        - label: Confirm that the release class matches the target version.
         - label: Rerun each affected gate after a candidate change and update its records.
 
   - type: textarea
     id: preflight-records
     attributes:
       label: Preflight records
-      description: Link each result. State why a step does not apply and name its owner.
-      placeholder: Include issue links, CodeScope results, tests, CI, TagIt, full commit SHA, and why each step does not apply.
+      description: Link each result. State why a step does not apply and name its role owner.
+      placeholder: Include issue links, CodeScope status, tests, CI, TagIt, full commit SHA, and reasons for non-applicable steps.
     validations:
       required: true
 
@@ -70,7 +71,7 @@ body:
     id: marketing
     attributes:
       label: Marketing inspection
-      description: Complete Marketing inspection before QA inspection. Link findings and results.
+      description: The Marketing team records its presentation and README inspection here. Link findings and results.
       options:
         - label: Marketing inspected presentation and branding for the candidate commit.
         - label: Resolve each Marketing finding or record that no finding remains open.
