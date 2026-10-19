@@ -6,9 +6,11 @@ body:
     attributes:
       value: >-
         The project agent creates this issue after TagIt preflight passes. Include the release
-        version in the issue title. Record each project check with its source commit and result.
-        Earlier source commits need not match the final candidate. Use the final candidate for
-        Marketing, QA, release approval, and publication. Follow [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
+        version in the issue title. Record each project check with its source commit or issue
+        snapshot date and result. Earlier checks need not name the final candidate. QA verifies
+        each source commit and confirms that it is an ancestor of the final candidate. Use the
+        final candidate for Marketing, QA, release approval, and publication. Follow [Operations
+        directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
         Use the repository name as the project owner. Explain why a step does not apply in the
         records fields. A blank required box blocks handoff. This checklist does not
         authorize release or deployment. Keep this issue open until all required records are complete.
@@ -53,6 +55,7 @@ body:
         - label: Resolve all open release-scope issues and link the issues.
         - label: Complete and verify comprehensive end-user documentation in docs/.
         - label: Remove README.md and AGENTS.md content that conventions do not require.
+        - label: For applications and libraries, open and close a scoped refactoring issue. Link it in Preflight records.
         - label: For applications and libraries, run codescope refactor and apply its recommendations.
         - label: For other profiles, record why refactoring does not apply.
         - label: Run npm test and commit after refactoring.
@@ -73,7 +76,7 @@ body:
     attributes:
       label: Preflight records
       description: Record each gate's source commit or issue snapshot date. Earlier records may name other revisions.
-      placeholder: Include dependency updates, issue results, docs and README checks, refactoring, CodeScope SHA and status, tests, CI, TagIt notes, and final preflight SHA.
+      placeholder: Include dependency updates, issue results, docs and README checks, refactoring issue or reason it does not apply, CodeScope SHA and status, tests, CI, TagIt notes, and final preflight SHA.
     validations:
       required: true
 
@@ -81,9 +84,10 @@ body:
     id: marketing
     attributes:
       label: Marketing inspection
-      description: The Marketing team records its presentation and README inspection here. Link findings and results.
+      description: Marketing records its README presentation inspection here. Link findings and results.
       options:
         - label: Marketing inspected presentation and branding for the candidate commit.
+        - label: Marketing confirmed the final candidate has the inspected README or inspected it again.
         - label: Resolve each Marketing finding or record that no finding remains open.
         - label: Confirm if Marketing changes required a new inspection and record the result.
         - label: Confirm that later changes did not alter the inspected candidate, or link updated checks.
@@ -103,6 +107,8 @@ body:
       label: QA inspection
       description: Ask QA to inspect the final candidate after Marketing completes.
       options:
+        - label: QA verified each project-check source commit or issue snapshot date and result.
+        - label: QA confirmed each source commit is an ancestor of the final candidate.
         - label: QA inspected applicable conventions on the final candidate commit.
         - label: Record QA approval for the exact final commit.
         - label: Resolve each QA finding or record that QA found none.
@@ -113,7 +119,7 @@ body:
     attributes:
       label: QA records
       description: Add the approved commit SHA and links to the QA inspection and follow-up issues.
-      placeholder: Include the full commit SHA and inspection result.
+      placeholder: Include the final candidate SHA, each source commit or issue snapshot date, verification results, and inspection result.
 
   - type: checkboxes
     id: approval-and-publication
