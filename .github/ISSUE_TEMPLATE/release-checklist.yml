@@ -5,11 +5,13 @@ body:
   - type: markdown
     attributes:
       value: >-
-        The project agent creates this issue after the final candidate passes TagIt preflight.
-        Include the release version in the title. Complete the project readiness checks before
-        handoff. Eli sends the checklist to Operations. Operations then coordinates Marketing, QA,
-        DevOps, and GitOps when deployment applies. This checklist does not authorize publication
-        or deployment. Keep the issue open until Operations completes the required records.
+        The project agent opens and owns this issue at the start of release work, before readiness
+        checks. Include the release version in the title. Record readiness results as work proceeds.
+        Add the full candidate commit after project checks pass and before cross-role review. Keep
+        the follow-up candidate separate from any previously published tag. Eli sends the completed
+        checklist to Operations. Operations coordinates Marketing, QA, DevOps, and GitOps when
+        deployment applies. This checklist does not authorize publication or deployment. Keep the
+        issue open until Operations completes the required records.
 
   - type: textarea
     id: release-scope
@@ -24,10 +26,10 @@ body:
     id: candidate-commit
     attributes:
       label: Final candidate commit
-      description: Record the full pushed commit that passed npm test, CI, and TagIt preflight.
+      description: Add the full pushed commit after it passes npm test, CI, and TagIt preflight.
       placeholder: Full candidate SHA
     validations:
-      required: true
+      required: false
 
   - type: dropdown
     id: change-class
@@ -45,7 +47,7 @@ body:
     id: project-readiness
     attributes:
       label: Project readiness
-      description: Complete these project checks before Operations starts cross-role checks.
+      description: Update these project checks as results occur. Complete them before cross-role checks.
       options:
         - label: Complete dependency updates, documentation, README and AGENTS cleanup, and release notes.
         - label: Close all open repository issues found during the project issue review.
@@ -58,7 +60,7 @@ body:
     attributes:
       label: Project readiness records
       description: Summarize the project checks and link related issues and validation results.
-      placeholder: Include dependency, issue, documentation, refactoring, CodeScope, test, CI, and TagIt results.
+      placeholder: Start with the current status. Add dependency, issue, documentation, refactoring, CodeScope, test, CI, and TagIt results as work proceeds.
     validations:
       required: true
 
