@@ -134,7 +134,7 @@ body:
       required: true
 
   - type: checkboxes
-    id: deployment-and-closure
+    id: deployment-handoff
     attributes:
       label: Deployment handoff
       description: Complete these gates only when deployment is required.
