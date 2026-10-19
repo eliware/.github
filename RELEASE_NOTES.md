@@ -18,3 +18,6 @@
 - Align the README and AGENTS.md files with required repository guidance.
 - Restore contributor context and development guidance in AGENTS.md.
 - Simplify the shared CI workflow formatting.
+- Align the release checklist with Operations E-12.6 and source-commit records.
+- Give Marketing, QA, and DevOps separate checklist records.
+- Set Marketing scope to README presentation, branding, links, and public copy.
