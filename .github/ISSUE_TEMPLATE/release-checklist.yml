@@ -73,6 +73,7 @@ body:
         - label: Marketing inspected all Markdown files for branding, links, public copy, and consistency.
         - label: Marketing checked package identity, description, keywords, links, author, license, and funding.
         - label: Marketing ran and verified GitHub metadata sync after source checks passed.
+        - label: Marketing completed every applicable check and linked all findings in one result.
         - label: Marketing recorded files, fields, result, sync, and any issues.
         - label: Marketing rechecked changed Markdown and package fields on the final candidate.
 
@@ -80,8 +81,8 @@ body:
     id: marketing-records
     attributes:
       label: Marketing records
-      description: Record the full candidate SHA, inspection result, accepted exceptions, and issue links.
-      placeholder: Add Marketing's inspection result and issues.
+      description: Record the full candidate SHA, coverage, result, and all issue links.
+      placeholder: List each check status. Link every correction issue in one complete result.
 
   - type: checkboxes
     id: qa
@@ -90,6 +91,8 @@ body:
       description: Operations sends QA the request after Marketing reports its result.
       options:
         - label: QA inspected applicable conventions and project readiness for the final candidate.
+        - label: QA recorded pass, issue, not applicable, or unverified for every applicable check.
+        - label: QA completed every applicable check and linked all blockers in one result.
         - label: QA recorded its result for the same candidate that Marketing reviewed.
         - label: Resolve QA blockers or record Eli's decision for each exception.
 
@@ -97,8 +100,8 @@ body:
     id: qa-records
     attributes:
       label: QA records
-      description: Record the full candidate SHA, QA result, and links to any findings.
-      placeholder: Add QA's review result and findings.
+      description: Record the full candidate SHA, coverage, QA result, and every blocker link.
+      placeholder: List each check status. Link all blocker issues in one complete QA result.
 
   - type: checkboxes
     id: approval-and-publication
@@ -106,6 +109,8 @@ body:
       label: Release authorization and publication
       description: Complete these steps after Marketing and QA pass the same candidate.
       options:
+        - label: DevOps checked every applicable release record before reporting a blocker.
+        - label: DevOps linked all corrective issues in one complete result.
         - label: Eli authorized publication of the candidate approved by Marketing and QA.
         - label: DevOps published the authorized candidate.
         - label: DevOps recorded the tag, workflow, registry result, and artifact details.
