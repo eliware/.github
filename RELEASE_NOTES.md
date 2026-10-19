@@ -20,4 +20,5 @@
 - Simplify the shared CI workflow formatting.
 - Align the release checklist with project readiness gates and Operations-led cross-role inspections and closure.
 - Give Marketing, QA, and DevOps separate checklist records.
-- Set Marketing scope to README presentation, branding, links, and public copy.
+- Expand Marketing inspection to all Markdown files and public package metadata.
+- Add curated public project links and a public documentation link to the organization profile.
