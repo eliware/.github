@@ -18,6 +18,8 @@ body:
         the required records. If a fix changes the candidate, update the full SHA and ask each
         approval owner to record its result for that candidate.
 
+        Record nonblocking suggestions separately. They do not block release approval.
+
   - type: textarea
     id: release-scope
     attributes:
@@ -81,7 +83,7 @@ body:
         - label: Marketing completed every applicable check and linked all corrective issues in one result.
         - label: Marketing recorded files, fields, result, sync, and any issues.
         - label: Marketing rechecked changed Markdown and package fields on the final candidate.
-        - label: Marketing checked prior issues and marked unaffected checks not repeated.
+        - label: Marketing checked prior issues and stated why unaffected checks are not repeated.
         - label: Marketing recorded its result for the current full candidate SHA.
 
   - type: textarea
@@ -101,7 +103,7 @@ body:
         - label: QA recorded pass, issue, not applicable, not repeated, or unverified for every check.
         - label: QA completed every applicable check and linked all blockers in one result.
         - label: QA recorded its result for the same candidate that Marketing reviewed.
-        - label: QA checked prior blockers and marked unaffected checks not repeated.
+        - label: QA checked prior blockers and stated why unaffected checks are not repeated.
         - label: QA recorded its result for the current full candidate SHA.
         - label: Resolve QA blockers or record Eli's decision for each exception.
 
