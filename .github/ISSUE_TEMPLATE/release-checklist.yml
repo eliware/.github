@@ -1,26 +1,22 @@
 name: Release checklist
-description: Record release inspections, authorization, publication, deployment, and results.
+description: Record project readiness, cross-role reviews, authorization, publication, and deployment.
 title: "Release checklist"
 body:
   - type: markdown
     attributes:
       value: >-
-        The project agent creates this issue after TagIt preflight passes. Include the release
-        version in the issue title. Record each project check with its source commit or issue
-        snapshot date and result. Earlier checks need not name the final candidate. QA verifies
-        each source commit and confirms that it is an ancestor of the final candidate. Use the
-        final candidate for Marketing, QA, release approval, and publication. Follow [Operations
-        directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
-        Use the repository name as the project owner. Explain why a step does not apply in the
-        records fields. A blank required box blocks handoff. This checklist does not
-        authorize release or deployment. Keep this issue open until all required records are complete.
+        The project agent creates this issue after the final candidate passes TagIt preflight.
+        Include the release version in the title. Complete the project readiness checks before
+        handoff. Eli sends the checklist to Operations. Operations then coordinates Marketing, QA,
+        DevOps, and GitOps when deployment applies. This checklist does not authorize publication
+        or deployment. Keep the issue open until Operations completes the required records.
 
   - type: textarea
     id: release-scope
     attributes:
       label: Release scope
-      description: Name the repository, version, target, and release scope. Use the repository name as the project owner.
-      placeholder: Include the repository name as project owner and describe the release scope.
+      description: Name the repository, project owner, package, version, target branch, and release scope.
+      placeholder: Describe the project and changes in this release.
     validations:
       required: true
 
@@ -28,8 +24,8 @@ body:
     id: candidate-commit
     attributes:
       label: Final candidate commit
-      description: Record the full commit SHA that passed npm test, CI, and TagIt preflight.
-      placeholder: Full final candidate SHA
+      description: Record the full pushed commit that passed npm test, CI, and TagIt preflight.
+      placeholder: Full candidate SHA
     validations:
       required: true
 
@@ -46,37 +42,23 @@ body:
       required: true
 
   - type: checkboxes
-    id: preflight
+    id: project-readiness
     attributes:
-      label: Preflight and candidate readiness
-      description: Record each completed project check. Link its source commit and result in Preflight records.
+      label: Project readiness
+      description: Complete these project checks before Operations starts cross-role checks.
       options:
-        - label: Run npm outdated. Install latest versions, then run npm update and npm install.
-        - label: Resolve all open release-scope issues and link the issues.
-        - label: Complete and verify comprehensive end-user documentation in docs/.
-        - label: Remove README.md and AGENTS.md content that conventions do not require.
-        - label: For applications and libraries, open and close a scoped refactoring issue. Link it in Preflight records.
-        - label: For applications and libraries, run codescope refactor and apply its recommendations.
-        - label: For other profiles, record why refactoring does not apply.
-        - label: Run npm test and commit after refactoring.
-        - label: Run codescope all and fix its reported issues.
-        - label: If changes result, run npm test and commit them.
-        - label: Do not run CodeScope again.
-        - label: Record its source commit. Mark CodeScope complete when Eli says it is done.
-        - label: Record focused validation and full npm test results.
-        - label: Run tagit notes and update release notes with today's date and all changes since the previous tag.
-        - label: Run npm test, commit the release notes, and push the final candidate.
-        - label: Confirm CI passes and TagIt preflight passes for the final candidate.
-        - label: Confirm that the release class matches the target version.
-        - label: Update the final candidate SHA and release notes after each later change.
-        - label: Rerun npm test, CI, and TagIt after each later candidate change.
+        - label: Complete dependency updates, documentation, README and AGENTS cleanup, and release notes.
+        - label: Close all open repository issues found during the project issue review.
+        - label: Complete CodeScope refactoring for applications and libraries, or state why it does not apply.
+        - label: Complete CodeScope all and fix its reported issues. Do not run it again.
+        - label: Push the final candidate and pass npm test, CI, and TagIt preflight.
 
   - type: textarea
-    id: preflight-records
+    id: project-records
     attributes:
-      label: Preflight records
-      description: Record each gate's source commit or issue snapshot date. Earlier records may name other revisions.
-      placeholder: Include dependency updates, issue results, docs and README checks, refactoring issue or reason it does not apply, CodeScope SHA and status, tests, CI, TagIt notes, and final preflight SHA.
+      label: Project readiness records
+      description: Summarize the project checks and link related issues and validation results.
+      placeholder: Include dependency, issue, documentation, refactoring, CodeScope, test, CI, and TagIt results.
     validations:
       required: true
 
@@ -84,66 +66,59 @@ body:
     id: marketing
     attributes:
       label: Marketing inspection
-      description: Marketing records its README presentation inspection here. Link findings and results.
+      description: Operations sends the request after Eli sends the issue.
       options:
-        - label: Marketing inspected README presentation, branding, links, and public copy for the candidate commit.
-        - label: Marketing confirmed the final candidate has the inspected README or inspected it again.
-        - label: Resolve each Marketing finding or record that no finding remains open.
-        - label: Confirm if Marketing changes required a new inspection and record the result.
-        - label: Confirm that later changes did not alter the inspected candidate, or link updated checks.
+        - label: Marketing inspected README presentation, branding, links, and public copy for the candidate.
+        - label: Marketing recorded its result and linked any findings.
+        - label: Marketing confirmed the final candidate or rechecked presentation after a change.
 
   - type: textarea
-    id: marketing-evidence
+    id: marketing-records
     attributes:
       label: Marketing records
-      description: Record the first inspection result, candidate commit, and links to any findings.
-      placeholder: Include the full commit SHA and initial inspection result.
-    validations:
-      required: true
+      description: Record the full candidate SHA, inspection result, accepted exceptions, and issue links.
+      placeholder: Add Marketing's inspection result and issues.
 
   - type: checkboxes
     id: qa
     attributes:
       label: QA inspection
-      description: Ask QA to inspect the final candidate after Marketing completes.
+      description: Operations sends QA the request after Marketing reports its result.
       options:
-        - label: QA verified each project-check source commit or issue snapshot date and result.
-        - label: QA confirmed each source commit is an ancestor of the final candidate.
-        - label: QA inspected applicable conventions on the final candidate commit.
-        - label: Record QA approval for the exact final commit.
-        - label: Resolve each QA finding or record that QA found none.
-        - label: Confirm that QA reviewed the final candidate after any later presentation change.
+        - label: QA inspected applicable conventions and project readiness for the final candidate.
+        - label: QA recorded its result for the same candidate that Marketing reviewed.
+        - label: Resolve QA blockers or record Eli's decision for each exception.
 
   - type: textarea
-    id: qa-evidence
+    id: qa-records
     attributes:
       label: QA records
-      description: Add the approved commit SHA and links to the QA inspection and follow-up issues.
-      placeholder: Include the final candidate SHA, each source commit or issue snapshot date, verification results, and inspection result.
+      description: Record the full candidate SHA, QA result, and links to any findings.
+      placeholder: Add QA's review result and findings.
 
   - type: checkboxes
     id: approval-and-publication
     attributes:
-      label: Release approval and publication
-      description: Complete these steps after Marketing and QA sign off on the same commit.
+      label: Release authorization and publication
+      description: Complete these steps after Marketing and QA pass the same candidate.
       options:
-        - label: Eli gave release authorization for the commit that Marketing and QA inspected.
-        - label: DevOps published the release after Eli's authorization.
-        - label: DevOps recorded publication details in this issue.
+        - label: Eli authorized publication of the candidate approved by Marketing and QA.
+        - label: DevOps published the authorized candidate.
+        - label: DevOps recorded the tag, workflow, registry result, and artifact details.
         - label: DevOps updated the Docs repository map.
 
   - type: textarea
     id: approval-publication-records
     attributes:
       label: Authorization and publication records
-      description: Add Eli's authorization, publication details, and the updated repository map.
-      placeholder: Record release version, publication commit, and relevant links.
+      description: Link Eli's authorization, publication results, and the updated repository map.
+      placeholder: Record the published version, commit, tag, artifact, and links.
 
   - type: dropdown
     id: deployment-required
     attributes:
       label: Deployment requirement
-      description: Record if this release changes a deployed system.
+      description: State if this release requires a GitOps deployment.
       options:
         - No deployment is required
         - Deployment is required
@@ -153,24 +128,24 @@ body:
   - type: checkboxes
     id: deployment-handoff
     attributes:
-      label: Deployment handoff
-      description: Complete these gates only when deployment is required.
+      label: GitOps handoff
+      description: Complete these gates only when deployment applies and Eli approves the handoff.
       options:
-        - label: Complete the approved deployment handoff or record why no deployment applies.
+        - label: Operations handed the approved deployment to GitOps after DevOps confirmed publication.
+        - label: GitOps recorded the approved commit, artifact digest, checks, and rollout result.
+        - label: GitOps linked any follow-up issue and returned the result to Operations.
 
   - type: textarea
     id: deployment-records
     attributes:
       label: Deployment records
-      description: Add Eli's handoff authorization, rollout results, and any follow-up issues.
-      placeholder: Record why no deployment applies, or add the approval, rollout status, and links.
-    validations:
-      required: true
+      description: Record why deployment does not apply, or link Eli's approval and GitOps results.
+      placeholder: Record the deployment decision and result.
 
   - type: checkboxes
     id: closure
     attributes:
       label: Closure
-      description: Complete this gate after every applicable release and deployment record is complete.
+      description: Operations closes this issue after every applicable gate is complete.
       options:
-        - label: DevOps confirmed that all required gates are complete and closed this issue.
+        - label: Operations confirmed the required records and closed this issue.
