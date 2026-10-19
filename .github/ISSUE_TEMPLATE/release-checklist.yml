@@ -115,13 +115,13 @@ body:
       placeholder: Record the published version, commit, tag, artifact, and links.
 
   - type: dropdown
-    id: deployment-required
+    id: ghcr-publication
     attributes:
-      label: Deployment requirement
-      description: State if this release requires a GitOps deployment.
+      label: GHCR publication
+      description: GitOps applies to a release only when this repository publishes an image to GHCR.
       options:
-        - No deployment is required
-        - Deployment is required
+        - This repository does not publish an image to GHCR
+        - This repository publishes an image to GHCR
     validations:
       required: true
 
@@ -129,7 +129,7 @@ body:
     id: deployment-handoff
     attributes:
       label: GitOps handoff
-      description: Complete these gates only when deployment applies and Eli approves the handoff.
+      description: Complete these gates only when this release publishes an image to GHCR and Eli approves the handoff.
       options:
         - label: Operations handed the approved deployment to GitOps after DevOps confirmed publication.
         - label: GitOps recorded the approved commit, artifact digest, checks, and rollout result.
@@ -139,13 +139,14 @@ body:
     id: deployment-records
     attributes:
       label: Deployment records
-      description: Record why deployment does not apply, or link Eli's approval and GitOps results.
-      placeholder: Record the deployment decision and result.
+      description: Record why GitOps does not apply, or link Eli's approval and rollout results.
+      placeholder: Record GHCR publication and the GitOps result.
 
   - type: checkboxes
     id: closure
     attributes:
       label: Closure
-      description: Operations closes this issue after every applicable gate is complete.
+      description: DevOps closes without a GHCR image. Operations closes after GitOps records a GHCR image rollout.
       options:
-        - label: Operations confirmed the required records and closed this issue.
+        - label: DevOps recorded publication and closed this issue because no GHCR image was published.
+        - label: Operations recorded the GitOps rollout and closed this issue after GHCR publication.
