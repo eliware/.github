@@ -10,8 +10,13 @@ body:
         Add the full candidate commit after project checks pass and before cross-role review. Keep
         the follow-up candidate separate from any previously published tag. Eli sends the completed
         checklist to Operations. Operations coordinates Marketing, QA, DevOps, and GitOps when
-        deployment applies. This checklist does not authorize publication or deployment. Keep the
-        issue open until Operations completes the required records.
+        deployment applies.
+
+        The project owner can commit and push corrective fixes while a gate fails.
+        Hold release handoff, publication, and rollout until all required gates pass. This checklist
+        does not authorize publication or deployment. Keep the issue open until Operations completes
+        the required records. If a fix changes the candidate, update the full SHA and ask each
+        approval owner to record its result for that candidate.
 
   - type: textarea
     id: release-scope
@@ -73,16 +78,18 @@ body:
         - label: Marketing inspected all Markdown files for branding, links, public copy, and consistency.
         - label: Marketing checked package identity, description, keywords, links, author, license, and funding.
         - label: Marketing ran and verified GitHub metadata sync after source checks passed.
-        - label: Marketing completed every applicable check and linked all findings in one result.
+        - label: Marketing completed every applicable check and linked all corrective issues in one result.
         - label: Marketing recorded files, fields, result, sync, and any issues.
         - label: Marketing rechecked changed Markdown and package fields on the final candidate.
+        - label: Marketing checked prior issues and marked unaffected checks not repeated.
+        - label: Marketing recorded its result for the current full candidate SHA.
 
   - type: textarea
     id: marketing-records
     attributes:
       label: Marketing records
       description: Record the full candidate SHA, coverage, result, and all issue links.
-      placeholder: List each check status. Link every correction issue in one complete result.
+      placeholder: "List each status: pass, issue, not applicable, not repeated, or unverified. Link every issue."
 
   - type: checkboxes
     id: qa
@@ -91,9 +98,11 @@ body:
       description: Operations sends QA the request after Marketing reports its result.
       options:
         - label: QA inspected applicable conventions and project readiness for the final candidate.
-        - label: QA recorded pass, issue, not applicable, or unverified for every applicable check.
+        - label: QA recorded pass, issue, not applicable, not repeated, or unverified for every check.
         - label: QA completed every applicable check and linked all blockers in one result.
         - label: QA recorded its result for the same candidate that Marketing reviewed.
+        - label: QA checked prior blockers and marked unaffected checks not repeated.
+        - label: QA recorded its result for the current full candidate SHA.
         - label: Resolve QA blockers or record Eli's decision for each exception.
 
   - type: textarea
@@ -101,7 +110,7 @@ body:
     attributes:
       label: QA records
       description: Record the full candidate SHA, coverage, QA result, and every blocker link.
-      placeholder: List each check status. Link all blocker issues in one complete QA result.
+      placeholder: "List each status: pass, issue, not applicable, not repeated, or unverified. Link all blockers."
 
   - type: checkboxes
     id: approval-and-publication
@@ -110,11 +119,19 @@ body:
       description: Complete these steps after Marketing and QA pass the same candidate.
       options:
         - label: DevOps checked every applicable release record before reporting a blocker.
+        - label: DevOps recorded a status for every applicable pre-publication check.
         - label: DevOps linked all corrective issues in one complete result.
         - label: Eli authorized publication of the candidate approved by Marketing and QA.
         - label: DevOps published the authorized candidate.
         - label: DevOps recorded the tag, workflow, registry result, and artifact details.
         - label: DevOps updated the Docs repository map.
+
+  - type: textarea
+    id: devops-checks
+    attributes:
+      label: DevOps pre-publication checks
+      description: Record a status for each applicable check. Link all corrective issues in one result.
+      placeholder: "List each status: pass, issue, not applicable, not repeated, or unverified. Include the candidate SHA."
 
   - type: textarea
     id: approval-publication-records
