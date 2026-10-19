@@ -8,27 +8,16 @@ body:
         After TagIt preflight passes, Marketing completes its first presentation and branding
         inspection. Marketing creates or initializes this issue after that inspection. Follow the
         project procedure and [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
-        This checklist records readiness. It does not grant release or deployment authorization.
-        Keep this issue open until each required stage and record is complete.
-
-  - type: checkboxes
-    id: authorization-boundaries
-    attributes:
-      label: Authorization boundaries
-      description: Follow Eli's instructions and the owning release procedure.
-      options:
-        - label: Use Eli's direct instruction as approval for each named action that follows its procedure.
-        - label: Do not request the same approval again for an action Eli named.
-        - label: If an unexpected result falls outside the instruction or procedure, stop and ask Eli.
-        - label: Do not run recovery, rollback, or a forward fix without Eli's direction.
-        - label: Do not treat checklist completion as release or production authorization.
+        The assigned role completes its section and links records. A blank box is incomplete.
+        Explain why a step does not apply in the records fields. This checklist does not
+        authorize release or deployment. Keep this issue open until all required records are complete.
 
   - type: textarea
     id: release-scope
     attributes:
       label: Release scope
       description: Name the repository, version, project owner, target, and release scope.
-      placeholder: Include the change classification and reason.
+      placeholder: Include the change class, release scope, and why it applies.
     validations:
       required: true
 
@@ -41,31 +30,39 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: change-class
+    attributes:
+      label: Change class
+      description: Classify the candidate under Operations directive E-12.6.
+      options:
+        - Substantial
+        - Minor
+    validations:
+      required: true
+
   - type: checkboxes
     id: preflight
     attributes:
       label: Preflight and candidate readiness
-      description: Complete these steps before Marketing inspects the candidate.
+      description: The owner completes these gates before QA inspection. Link results in Preflight records.
       options:
-        - label: Resolve all open release-scope issues in the owning repository.
-        - label: Create and complete a separate issue for required refactoring.
-        - label: Run CodeScope all until two consecutive runs show zero issues and suggestions.
-        - label: For each result, repair a true defect or update its specification, test, or documentation.
-        - label: Do not commit during the CodeScope loop.
-        - label: Run full npm test after the CodeScope loop passes.
-        - label: Push the candidate through the approved workflow and confirm CI for its commit.
-        - label: Run TagIt preflight after CI passes.
-        - label: For minor scope, confirm that behavior, architecture, dependencies, and CodeScope results stay unchanged.
-        - label: For minor scope, skip refactoring and CodeScope only.
-        - label: For minor scope, run focused validation, npm test, push, CI, TagIt, and new QA approval.
-        - label: After a substantial change, repeat issue resolution, refactoring, CodeScope, npm test, push, CI, and TagIt.
+        - label: Resolve all open release-scope issues and link the issues.
+        - label: Record the refactoring result and link its issue, or state why it does not apply.
+        - label: Record two clean CodeScope runs, or explain a permitted minor-change skip.
+        - label: Resolve each CodeScope finding or record that no repair was required.
+        - label: Record focused validation and full npm test results.
+        - label: Push the candidate and link passing CI for its exact commit.
+        - label: Pass TagIt preflight for the exact candidate commit.
+        - label: Record the change class and why it applies.
+        - label: Rerun each affected gate after a candidate change and update its records.
 
   - type: textarea
     id: preflight-records
     attributes:
       label: Preflight records
-      description: Link the issue, CodeScope results, test result, CI run, and TagIt result.
-      placeholder: Paste links to the records and the candidate commit SHA.
+      description: Link each result. State why a step does not apply and name its owner.
+      placeholder: Include issue links, CodeScope results, tests, CI, TagIt, full commit SHA, and why each step does not apply.
     validations:
       required: true
 
@@ -73,13 +70,12 @@ body:
     id: marketing
     attributes:
       label: Marketing inspection
-      description: Complete Marketing inspection before QA inspection.
+      description: Complete Marketing inspection before QA inspection. Link findings and results.
       options:
         - label: Marketing inspected presentation and branding for the candidate commit.
-        - label: Resolve Marketing findings in issues in their owning repositories.
-        - label: With owner approval, let Marketing make small presentation fixes within its scope.
-        - label: If a change affects presentation or branding, repeat Marketing inspection before QA.
-        - label: After Marketing changes, run validation, push the candidate, confirm CI, and rerun TagIt.
+        - label: Resolve each Marketing finding or record that no finding remains open.
+        - label: Confirm if Marketing changes required a new inspection and record the result.
+        - label: Confirm that later changes did not alter the inspected candidate, or link updated checks.
 
   - type: textarea
     id: marketing-evidence
@@ -98,9 +94,8 @@ body:
       options:
         - label: QA inspected applicable conventions on the final candidate commit.
         - label: Record QA approval for the exact final commit.
-        - label: Record QA findings as issues in their owning repositories.
-        - label: Keep this release issue open while QA findings remain unresolved.
-        - label: If a later change affects presentation or branding, repeat Marketing inspection before QA.
+        - label: Resolve each QA finding or record that QA found none.
+        - label: Confirm that QA reviewed the final candidate after any later presentation change.
 
   - type: textarea
     id: qa-evidence
@@ -127,22 +122,38 @@ body:
       description: Add Eli's authorization, publication details, and the updated repository map.
       placeholder: Record release version, publication commit, and relevant links.
 
+  - type: dropdown
+    id: deployment-required
+    attributes:
+      label: Deployment requirement
+      description: Record if this release changes a deployed system.
+      options:
+        - No deployment is required
+        - Deployment is required
+    validations:
+      required: true
+
   - type: checkboxes
     id: deployment-and-closure
     attributes:
-      label: Deployment and closure
-      description: Deployment requires Eli's approval after DevOps publication.
+      label: Deployment handoff
+      description: Complete these gates only when deployment is required.
       options:
-        - label: Eli gave deployment handoff authorization after publication.
-        - label: GitOps monitored the rollout and stopped it when required.
-        - label: GitOps recorded rollout results or opened follow-up issues.
-        - label: For a production image change, DevOps opened a GitOps issue with the image digest.
-        - label: For a production image change, GitOps applied it only after Eli's direction.
-        - label: DevOps closed this issue after all checklist items and records were complete.
+        - label: Complete the approved deployment handoff or record why no deployment applies.
 
   - type: textarea
     id: deployment-records
     attributes:
       label: Deployment records
       description: Add Eli's handoff authorization, rollout results, and any follow-up issues.
-      placeholder: Record the final deployment status and links.
+      placeholder: Record why no deployment applies, or add the approval, rollout status, and links.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: closure
+    attributes:
+      label: Closure
+      description: Complete this gate after every applicable release and deployment record is complete.
+      options:
+        - label: DevOps confirmed that all required gates are complete and closed this issue.
