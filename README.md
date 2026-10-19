@@ -37,6 +37,8 @@ Read [repository specifications](specs/README.md) for this repository's directiv
 
 ## Development
 
+Update shared files in this repository. Keep project-specific rules in each target repository.
+
 ## Testing
 
 Run `npm test` for aggregate checks.
@@ -46,6 +48,8 @@ Run `npm run format` to format files.
 Run `npm run format:check` to check file format.
 
 ## Troubleshooting
+
+If a check fails, read the reported rule and file. Fix the cause, then run `npm test` again.
 
 ## Security
 
