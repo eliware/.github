@@ -86,7 +86,7 @@ body:
       label: Marketing inspection
       description: Marketing records its README presentation inspection here. Link findings and results.
       options:
-        - label: Marketing inspected presentation and branding for the candidate commit.
+        - label: Marketing inspected README presentation, branding, links, and public copy for the candidate commit.
         - label: Marketing confirmed the final candidate has the inspected README or inspected it again.
         - label: Resolve each Marketing finding or record that no finding remains open.
         - label: Confirm if Marketing changes required a new inspection and record the result.
