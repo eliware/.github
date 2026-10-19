@@ -24,7 +24,7 @@ This repository provides shared GitHub community health files and profile conten
 
 ## Requirements
 
-Use Node.js 26 or later and npm 12 or later for repository checks.
+Use Node.js 26 or later.
 
 ## Setup
 
@@ -37,15 +37,15 @@ Read [repository specifications](specs/README.md) for this repository's directiv
 
 ## Development
 
-Read [AGENTS.md](AGENTS.md) before you change files.
-
 ## Testing
 
 Run `npm test` for aggregate checks.
+Run `npm run lint` for lint checks.
+Run `npm run audit` for dependency checks.
+Run `npm run format` to format files.
+Run `npm run format:check` to check file format.
 
 ## Troubleshooting
-
-Run `npm ci` after dependency changes. Check the failed rule and file path.
 
 ## Security
 
