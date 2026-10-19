@@ -5,10 +5,10 @@ body:
   - type: markdown
     attributes:
       value: >-
-        The project agent creates this issue at the start of release preparation, before readiness
-        checks. Unchecked boxes are expected during preparation. Complete required gates before QA
-        handoff and publication. Include the release version in the issue title. The assigned role
-        completes its section and links records. Follow [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
+        The project agent creates this issue after TagIt preflight passes. Include the release
+        version in the issue title. Record each project check with its source commit and result.
+        Earlier source commits need not match the final candidate. Use the final candidate for
+        Marketing, QA, release approval, and publication. Follow [Operations directives E-12.6 and E-12.7](https://github.com/eliware/operations/blob/main/specs/directives.yaml).
         Use the repository name as the project owner. Explain why a step does not apply in the
         records fields. A blank required box blocks handoff. This checklist does not
         authorize release or deployment. Keep this issue open until all required records are complete.
@@ -25,9 +25,9 @@ body:
   - type: input
     id: candidate-commit
     attributes:
-      label: Current candidate commit
-      description: Record the current full commit SHA when you open this issue. Update it after each candidate change.
-      placeholder: Full current commit SHA
+      label: Final candidate commit
+      description: Record the full commit SHA that passed npm test, CI, and TagIt preflight.
+      placeholder: Full final candidate SHA
     validations:
       required: true
 
@@ -47,23 +47,33 @@ body:
     id: preflight
     attributes:
       label: Preflight and candidate readiness
-      description: The project agent completes these gates before QA inspection. Link results in Preflight records.
+      description: Record each completed project check. Link its source commit and result in Preflight records.
       options:
+        - label: Run npm outdated. Install latest versions, then run npm update and npm install.
         - label: Resolve all open release-scope issues and link the issues.
-        - label: For applications and libraries, complete refactoring. For other profiles, record why it does not apply.
-        - label: Record CodeScope status as Eli directs. Mark it complete when Eli says it is done.
+        - label: Complete and verify comprehensive end-user documentation in docs/.
+        - label: Remove README.md and AGENTS.md content that conventions do not require.
+        - label: For applications and libraries, run codescope refactor and apply its recommendations.
+        - label: For other profiles, record why refactoring does not apply.
+        - label: Run npm test and commit after refactoring.
+        - label: Run codescope all and fix its reported issues.
+        - label: If changes result, run npm test and commit them.
+        - label: Do not run CodeScope again.
+        - label: Record its source commit. Mark CodeScope complete when Eli says it is done.
         - label: Record focused validation and full npm test results.
-        - label: Push the candidate and link passing CI for its exact commit.
-        - label: Pass TagIt preflight for the exact candidate commit.
+        - label: Run tagit notes and update release notes with today's date and all changes since the previous tag.
+        - label: Run npm test, commit the release notes, and push the final candidate.
+        - label: Confirm CI passes and TagIt preflight passes for the final candidate.
         - label: Confirm that the release class matches the target version.
-        - label: Rerun each affected gate after a candidate change and update its records.
+        - label: Update the final candidate SHA and release notes after each later change.
+        - label: Rerun npm test, CI, and TagIt after each later candidate change.
 
   - type: textarea
     id: preflight-records
     attributes:
       label: Preflight records
-      description: Link each result. State why a step does not apply and name its role owner.
-      placeholder: Include issue links, CodeScope status, tests, CI, TagIt, full commit SHA, and reasons for non-applicable steps.
+      description: Record each gate's source commit or issue snapshot date. Earlier records may name other revisions.
+      placeholder: Include dependency updates, issue results, docs and README checks, refactoring, CodeScope SHA and status, tests, CI, TagIt notes, and final preflight SHA.
     validations:
       required: true
 
