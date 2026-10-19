@@ -68,9 +68,11 @@ body:
       label: Marketing inspection
       description: Operations sends the request after Eli sends the issue.
       options:
-        - label: Marketing inspected README presentation, branding, links, and public copy for the candidate.
-        - label: Marketing recorded its result and linked any findings.
-        - label: Marketing confirmed the final candidate or rechecked presentation after a change.
+        - label: Marketing inspected all Markdown files for branding, links, public copy, and consistency.
+        - label: Marketing checked package identity, description, keywords, links, author, license, and funding.
+        - label: Marketing ran and verified GitHub metadata sync after source checks passed.
+        - label: Marketing recorded files, fields, result, sync, and any issues.
+        - label: Marketing rechecked changed Markdown and package fields on the final candidate.
 
   - type: textarea
     id: marketing-records
