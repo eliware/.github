@@ -9,6 +9,8 @@
 ### Changed
 
 - Align package metadata and repository directives with Convention 14.
+- Update `@eliware/test` to version 14.0.0.
+- Align the root README and AGENTS.md with the maintained documentation and repository conventions.
 - Open the release checklist before readiness checks and record results as work proceeds.
 - Allow checklist creation before a candidate commit exists.
 - Keep approval records tied to the full candidate commit and repeat checks when that commit changes.
