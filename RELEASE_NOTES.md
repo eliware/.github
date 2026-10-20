@@ -1,5 +1,21 @@
 # Release Notes
 
+## 14.0.0 — 2026-10-20
+
+### Added
+
+- Add an end-user guide for shared GitHub files, release checklists, and the organization profile.
+
+### Changed
+
+- Align package metadata and repository directives with Convention 14.
+- Open the release checklist before readiness checks and record results as work proceeds.
+- Allow checklist creation before a candidate commit exists.
+- Keep approval records tied to the full candidate commit and repeat checks when that commit changes.
+- Require complete readiness, Marketing, QA, and DevOps results before Operations closes the checklist.
+- Record coverage, status, blockers, corrective issues, and pre-publication checks.
+- Separate nonblocking suggestions from release blockers.
+
 ## 13.0.0 — 2026-10-19
 
 ### Added

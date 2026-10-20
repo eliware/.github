@@ -20,7 +20,7 @@ Eliware organization-wide GitHub community health files and profile.
 
 ## Features
 
-This repository provides shared GitHub community health files and profile content. Each target repository owns its project rules, code, and settings.
+This repository supplies shared GitHub community health files and the Eliware organization profile.
 
 ## Requirements
 
@@ -32,12 +32,14 @@ Run `npm ci` from the repository root.
 
 ## Usage
 
-Use these shared files as defaults for Eliware repositories.
+Read the [shared files guide](docs/shared-github-files.md) to learn how GitHub uses these files.
+Read the [documentation index](docs/README.md) for maintained user guides.
 Read [repository specifications](specs/README.md) for this repository's directives.
+Read [release notes](RELEASE_NOTES.md) for changes by version.
 
 ## Development
 
-Update shared files in this repository. Keep project-specific rules in each target repository.
+Before you change files, read [AGENTS.md](AGENTS.md).
 
 ## Testing
 
@@ -49,7 +51,7 @@ Run `npm run format:check` to check file format.
 
 ## Troubleshooting
 
-If a check fails, read the reported rule and file. Fix the cause, then run `npm test` again.
+If a check fails, read the reported rule and file.
 
 ## Security
 

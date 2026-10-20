@@ -42,7 +42,7 @@ body:
     id: change-class
     attributes:
       label: Release class
-      description: Set every v13 release class to Major. Derive other classes from the target version.
+      description: Set every v14 release class to Major. Derive other classes from the target version.
       options:
         - Major
         - Minor

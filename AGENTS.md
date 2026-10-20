@@ -10,12 +10,12 @@ Keep each requirement in its owning specification.
 
 ## Layout
 
-Read [README.md](README.md) and [specs/README.md](specs/README.md) to find maintained files.
+Read [README.md](README.md), [docs/README.md](docs/README.md), and [specs/README.md](specs/README.md) to find maintained files.
 
 ## Development
 
 Give each source and test module one cohesive purpose.
-Split a module when it has more than one cause for change.
+Split a module when its behavior, tests, or reasons for change show more than one responsibility.
 
 ## Validation
 
@@ -30,7 +30,7 @@ Run `npm run format:check` to check file format.
 
 ## Security
 
-Keep credentials, secrets, private data, and runtime state out of Git.
+Keep credentials, secrets, private data, runtime state, and machine-specific state out of Git.
 
 ## Changes
 
