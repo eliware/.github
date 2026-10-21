@@ -130,9 +130,13 @@ body:
         - label: DevOps checked every applicable release record before reporting a blocker.
         - label: DevOps recorded a status for every applicable pre-publication check.
         - label: DevOps linked all corrective issues in one complete result.
+        - label: Operations handed DevOps the checklist URL and full candidate SHA after approval.
+        - label: DevOps verified Marketing, QA, TagIt, and Eli records name the same candidate SHA.
         - label: Eli authorized publication of the candidate approved by Marketing and QA.
         - label: DevOps published the authorized candidate.
         - label: DevOps recorded the tag, workflow, registry result, and artifact details.
+        - label: DevOps recorded the published package version and successful workflow evidence.
+        - label: DevOps recorded the GHCR workflow, image digest, registry digest check, and immutable digest inspection when applicable.
         - label: DevOps updated the Docs repository map.
 
   - type: textarea
@@ -140,14 +144,14 @@ body:
     attributes:
       label: DevOps pre-publication checks
       description: Record a status for each applicable check. Link all corrective issues in one result.
-      placeholder: "List each status: pass, issue, not applicable, not repeated, or unverified. Include the candidate SHA."
+      placeholder: "Record each status and the full source candidate SHA. For npm, record the package version and workflow result. For GHCR, record the workflow result, image digest, registry digest check, and immutable digest inspection. Do not require attestations. Link all blockers."
 
   - type: textarea
     id: approval-publication-records
     attributes:
       label: Authorization and publication records
       description: Link Eli's authorization, publication results, and the updated repository map.
-      placeholder: Record the published version, commit, tag, artifact, and links.
+      placeholder: Record the approved source SHA separately from the release commit and tag target. Record the package version, workflow result, artifact, and links.
 
   - type: dropdown
     id: ghcr-publication
@@ -167,7 +171,10 @@ body:
       description: Complete these gates only when this release publishes an image to GHCR and Eli approves the handoff.
       options:
         - label: Operations handed the approved deployment to GitOps after DevOps confirmed publication.
-        - label: GitOps recorded the approved commit, artifact digest, checks, and rollout result.
+        - label: GitOps verified the source candidate SHA against Marketing, QA, and DevOps records.
+        - label: GitOps checked all applicable deployment requirements before reporting a blocker.
+        - label: GitOps recorded the published image digest, registry digest check, immutable digest inspection, and rollout result.
+        - label: GitOps linked every corrective issue in one complete result.
         - label: GitOps linked any follow-up issue and returned the result to Operations.
 
   - type: textarea
@@ -175,7 +182,7 @@ body:
     attributes:
       label: Deployment records
       description: Record why GitOps does not apply, or link Eli's approval and rollout results.
-      placeholder: Record GHCR publication and the GitOps result.
+      placeholder: Record the full candidate SHA, GHCR workflow result, image digest, registry digest check, immutable digest inspection, every blocker, and rollout result. Do not require attestations.
 
   - type: checkboxes
     id: closure
