@@ -7,10 +7,11 @@ body:
       value: >-
         The project agent opens and owns this issue at the start of release work, before readiness
         checks. Include the release version in the title. Record readiness results as work proceeds.
-        Add the full candidate commit after project checks pass and before cross-role review. Keep
-        the follow-up candidate separate from any previously published tag. Eli sends the completed
-        checklist to Operations. Operations coordinates Marketing, QA, DevOps, and GitOps when
-        deployment applies.
+        Add the full candidate commit after project checks pass and before cross-role inspections. Keep
+        the follow-up candidate separate from any previously published tag. Send the completed
+        checklist to Operations for coordination. Eli or Operations can start Marketing inspection
+        after readiness is recorded.
+        Operations coordinates Marketing, QA, DevOps, and GitOps when deployment applies.
 
         The project owner can commit and push corrective fixes while a gate fails.
         Hold release handoff, publication, and rollout until all required gates pass. This checklist
@@ -42,7 +43,7 @@ body:
     id: change-class
     attributes:
       label: Release class
-      description: Set every v14 release class to Major. Derive other classes from the target version.
+      description: Set every v15 release class to Major. Derive other classes from the target version.
       options:
         - Major
         - Minor
@@ -75,14 +76,19 @@ body:
     id: marketing
     attributes:
       label: Marketing inspection
-      description: Operations sends the request after Eli sends the issue.
+      description: Eli or Operations can start Marketing inspection after project readiness is recorded.
       options:
-        - label: Marketing inspected all Markdown files for branding, links, public copy, and consistency.
-        - label: Marketing checked package identity, description, keywords, links, author, license, and funding.
-        - label: Marketing ran and verified GitHub metadata sync after source checks passed.
+        - label: Marketing inspected every tracked Markdown file for branding, public copy, and consistency.
+        - label: Marketing checked every local link and fragment in all Markdown files.
+        - label: Marketing checked every external link, image, and badge. Broken or unverified links block PASS.
+        - label: Marketing matched map ID to eliware.id and profiles to eliware.apply.
+        - label: Marketing matched map description and keywords to package fields.
+        - label: Marketing matched README description to package.json description.
+        - label: Marketing checked package name, version, homepage, repository URL, bugs URL, author, license, funding, and publication settings.
+        - label: Marketing synced and verified GitHub description, homepage, and topics against source values.
         - label: Marketing completed every applicable check and linked all corrective issues in one result.
-        - label: Marketing recorded files, fields, result, sync, and any issues.
-        - label: Marketing rechecked changed Markdown and package fields on the final candidate.
+        - label: Marketing recorded each file, link, field, sync result, and issue status.
+        - label: Marketing rechecked changed items and stated why unchanged checks were not repeated.
         - label: Marketing checked prior issues and stated why unaffected checks are not repeated.
         - label: Marketing recorded its result for the current full candidate SHA.
 
@@ -90,7 +96,7 @@ body:
     id: marketing-records
     attributes:
       label: Marketing records
-      description: Record the full candidate SHA, coverage, result, and all issue links.
+      description: Record the candidate SHA, per-file and per-field status, link results, metadata sync, outcome, and issue links.
       placeholder: "List each status: pass, issue, not applicable, not repeated, or unverified. Link every issue."
 
   - type: checkboxes

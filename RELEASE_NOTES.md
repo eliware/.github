@@ -1,5 +1,14 @@
 # Release Notes
 
+## 15.0.0 — 2026-10-21
+
+### Changed
+
+- Align package metadata and repository directives with Convention 15.
+- Update `@eliware/test` to version 15.0.0 and refresh the dependency lockfile.
+- Update the release checklist for v15 and allow Eli or Operations to start Marketing inspection after project readiness.
+- Require Marketing to record Markdown, links, images, badges, metadata, sync results, issues, and the candidate commit.
+
 ## 14.0.0 — 2026-10-20
 
 ### Added
@@ -13,7 +22,7 @@
 - Align the root README and AGENTS.md with the maintained documentation and repository conventions.
 - Open the release checklist before readiness checks and record results as work proceeds.
 - Allow checklist creation before a candidate commit exists.
-- Keep approval records tied to the full candidate commit and repeat checks when that commit changes.
+- Keep approval records tied to the full candidate commit and repeat inspections when that commit changes.
 - Require complete readiness, Marketing, QA, and DevOps results before Operations closes the checklist.
 - Record coverage, status, blockers, corrective issues, and pre-publication checks.
 - Separate nonblocking suggestions from release blockers.
