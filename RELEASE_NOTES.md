@@ -17,6 +17,7 @@
 - Require complete readiness, Marketing, QA, and DevOps results before Operations closes the checklist.
 - Record coverage, status, blockers, corrective issues, and pre-publication checks.
 - Separate nonblocking suggestions from release blockers.
+- Replace private Operations links with organization-neutral release guidance.
 
 ## 13.0.0 — 2026-10-19
 

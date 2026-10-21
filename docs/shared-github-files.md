@@ -49,7 +49,7 @@ The checklist does not grant release or deployment authorization.
 2. Select the release checklist when GitHub offers it.
 3. Record the repository, version, owner, target, and release scope.
 4. Record the candidate commit and check results as the release work proceeds.
-5. Follow [Eliware Operations directives](https://github.com/eliware/operations/blob/main/specs/directives.yaml) for release roles, approval, and handoff.
+5. Follow your organization's release process for roles, approval, and handoff.
 
 If GitHub does not offer the checklist, check if the target repository has its own issue templates or template configuration.
 If the target repository needs a project-specific release checklist, maintain that checklist in the target repository.
