@@ -4,10 +4,13 @@
 
 ### Changed
 
-- Align package metadata and repository directives with Convention 15.
-- Update `@eliware/test` to version 15.0.0 and refresh the dependency lockfile.
-- Update the release checklist for v15 and allow Eli or Operations to start Marketing inspection after project readiness.
-- Require Marketing to record Markdown, links, images, badges, metadata, sync results, issues, and the candidate commit.
+- Align package metadata and repository directives with Convention 15. Update `@eliware/test` to version 15.0.0 and refresh the dependency lockfile.
+- Update the release checklist for v15. Allow Eli or Operations to start Marketing inspection after project readiness.
+- Expand Marketing checks to cover tracked Markdown files, presentations, links, images, badges, package fields, and repo-map fields. Record metadata sync, prior issues, and the full candidate SHA.
+- Require Operations to send DevOps one handoff after Eli confirms publication. Record the checklist link, repository, version, full candidate SHA, Marketing and QA results, TagIt preflight result, and Eli's publication decision.
+- Require DevOps to verify the handoff and record the reviewed candidate separately from the release commit and tag target. Record the npm version and workflow result or the GHCR workflow result, image digest, registry digest match, and immutable-digest inspection.
+- Require GitOps to check the candidate and image data. GitOps reports the deployment diff, checks, risks, and proposed action. Eli must accept the exact change before GitOps commits or pushes it.
+- Require each inspection role to report all blockers together. Close the checklist after publication with DevOps when GHCR does not apply, or after rollout with Operations when GHCR applies.
 
 ## 14.0.0 — 2026-10-20
 
