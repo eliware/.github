@@ -177,30 +177,22 @@ body:
     id: deployment-handoff
     attributes:
       label: GitOps handoff
-      description: Complete these gates only for GHCR releases. Eli first approves inspection, then approves the exact GitOps change.
+      description: For GHCR releases, DevOps opens a separate GitOps issue. Eli approves the inspection and the exact GitOps change.
       options:
-        - label: Operations handed the approved deployment to GitOps after DevOps confirmed publication.
-        - label: GitOps verified the source candidate SHA against Marketing, QA, and DevOps records.
-        - label: GitOps checked all applicable deployment requirements before reporting a blocker.
-        - label: GitOps recorded the published image digest, registry digest check, immutable digest inspection, and rollout result.
-        - label: GitOps linked every corrective issue in one complete result.
-        - label: GitOps reported the inspected change, checks, risks, and proposed action to Eli and Operations.
-        - label: Eli authorized the exact GitOps change after reviewing its diff, checks, and risks.
-        - label: GitOps committed and pushed only the exact change Eli authorized.
-        - label: GitOps linked any follow-up issue and returned the result to Operations.
+        - label: DevOps opened and linked a gitops-k8s issue with the source SHA, image digest, and pin and deployment request.
 
   - type: textarea
     id: deployment-records
     attributes:
       label: Deployment records
-      description: Record why GitOps does not apply, or link Eli's approval and rollout results.
-      placeholder: Record the full candidate SHA, GHCR workflow result, image digest, registry digest check, immutable digest inspection, every blocker, and rollout result. Do not require attestations.
+      description: Record why GitOps does not apply, or link the separate GitOps issue. Record GitOps checks and deployment results on that issue.
+      placeholder: Record the source SHA, image digest, GitOps issue link, and publication result. Do not require attestations.
 
   - type: checkboxes
     id: closure
     attributes:
       label: Closure
-      description: DevOps closes without a GHCR image. Operations closes after GitOps records a GHCR image rollout.
+      description: DevOps closes every release checklist after publication. For GHCR, DevOps links the GitOps issue before closure. Record later deployment results on that issue.
       options:
-        - label: DevOps recorded publication and closed this issue because no GHCR image was published.
-        - label: Operations recorded the GitOps rollout and closed this issue after GHCR publication.
+        - label: DevOps recorded publication and closed this checklist.
+        - label: For GHCR, DevOps opened and linked the separate GitOps issue before closure.
