@@ -10,7 +10,7 @@ body:
         Add the full candidate commit after project checks pass and before cross-role inspections. Keep
         the follow-up candidate separate from any previously published tag. Send the completed
         checklist to Operations for coordination. Eli or Operations can start Marketing inspection
-        after readiness is recorded.
+        after readiness is recorded. Use the repository name as the project owner.
         Operations coordinates Marketing, QA, DevOps, and GitOps when deployment applies.
 
         The project owner can commit and push corrective fixes while a gate fails.
@@ -82,6 +82,7 @@ body:
         - label: Marketing checked every local link and fragment in all Markdown files.
         - label: Marketing checked every external link, image, and badge. Broken or unverified links block PASS.
         - label: Marketing matched map ID to eliware.id and profiles to eliware.apply.
+        - label: Marketing checked eliware.exempt when that package field exists.
         - label: Marketing matched map description and keywords to package fields.
         - label: Marketing matched README description to package.json description.
         - label: Marketing checked package name, version, homepage, repository URL, bugs URL, author, license, funding, and publication settings.
