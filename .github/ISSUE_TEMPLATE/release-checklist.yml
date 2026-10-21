@@ -130,9 +130,11 @@ body:
         - label: DevOps checked every applicable release record before reporting a blocker.
         - label: DevOps recorded a status for every applicable pre-publication check.
         - label: DevOps linked all corrective issues in one complete result.
-        - label: Operations handed DevOps the checklist URL and full candidate SHA after approval.
-        - label: DevOps verified Marketing, QA, TagIt, and Eli records name the same candidate SHA.
+        - label: Operations sent one authorized handoff after Marketing and QA passed the same candidate and TagIt passed.
+        - label: DevOps verified the handoff, checklist, and Eli authorization for the exact repository, version, candidate, and action.
+        - label: DevOps verified Marketing, QA, and TagIt records name the same full candidate SHA.
         - label: Eli authorized publication of the candidate approved by Marketing and QA.
+        - label: DevOps recorded the reviewed candidate separately from the release commit and tag target.
         - label: DevOps published the authorized candidate.
         - label: DevOps recorded the tag, workflow, registry result, and artifact details.
         - label: DevOps recorded the published package version and successful workflow evidence.
@@ -140,10 +142,17 @@ body:
         - label: DevOps updated the Docs repository map.
 
   - type: textarea
+    id: operations-devops-handoff
+    attributes:
+      label: Operations to DevOps handoff
+      description: Record one handoff after Marketing and QA pass the same candidate and TagIt preflight passes.
+      placeholder: "Link the checklist. Record repository, version, full candidate SHA, Marketing result, QA result, TagIt preflight result, and Eli's authorization for the exact release action."
+
+  - type: textarea
     id: devops-checks
     attributes:
       label: DevOps pre-publication checks
-      description: Record a status for each applicable check. Link all corrective issues in one result.
+      description: Verify the handoff and authorization. Record each check and link all blockers in one result.
       placeholder: "Record each status and the full source candidate SHA. For npm, record the package version and workflow result. For GHCR, record the workflow result, image digest, registry digest check, and immutable digest inspection. Do not require attestations. Link all blockers."
 
   - type: textarea
