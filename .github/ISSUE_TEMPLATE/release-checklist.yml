@@ -78,7 +78,7 @@ body:
       label: Marketing inspection
       description: Eli or Operations can start Marketing inspection after project readiness is recorded.
       options:
-        - label: Marketing inspected every tracked Markdown file for branding, public copy, and consistency.
+        - label: Marketing inspected every tracked Markdown file and presentation for branding, public copy, and consistency.
         - label: Marketing checked every local link and fragment in all Markdown files.
         - label: Marketing checked every external link, image, and badge. Broken or unverified links block PASS.
         - label: Marketing matched map ID to eliware.id and profiles to eliware.apply.
@@ -177,13 +177,16 @@ body:
     id: deployment-handoff
     attributes:
       label: GitOps handoff
-      description: Complete these gates only when this release publishes an image to GHCR and Eli approves the handoff.
+      description: Complete these gates only for GHCR releases. Eli first approves inspection, then approves the exact GitOps change.
       options:
         - label: Operations handed the approved deployment to GitOps after DevOps confirmed publication.
         - label: GitOps verified the source candidate SHA against Marketing, QA, and DevOps records.
         - label: GitOps checked all applicable deployment requirements before reporting a blocker.
         - label: GitOps recorded the published image digest, registry digest check, immutable digest inspection, and rollout result.
         - label: GitOps linked every corrective issue in one complete result.
+        - label: GitOps reported the inspected change, checks, risks, and proposed action to Eli and Operations.
+        - label: Eli authorized the exact GitOps change after reviewing its diff, checks, and risks.
+        - label: GitOps committed and pushed only the exact change Eli authorized.
         - label: GitOps linked any follow-up issue and returned the result to Operations.
 
   - type: textarea
