@@ -1,5 +1,12 @@
 # Release Notes
 
+## 15.0.1 — 2026-10-26
+
+### Changed
+
+- Set the package version to 15.0.1. Update `@eliware/test` to 15.0.1 and refresh its dependency lockfile.
+- Require DevOps to close the release checklist after publication. For GHCR, DevOps links a separate GitOps issue with the source SHA, image digest, pin, and deployment request. Record later deployment results on that issue.
+
 ## 15.0.0 — 2026-10-21
 
 ### Changed
