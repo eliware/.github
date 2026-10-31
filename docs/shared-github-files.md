@@ -19,16 +19,17 @@ This repository currently provides these shared files:
 - `.github/ISSUE_TEMPLATE/release-checklist.yml` provides a release checklist template.
 - `profile/README.md` provides the public Eliware organization profile text.
 
-This repository does not currently provide default contribution, safety, or support policy files.
+This repository does not provide other default community health files.
 
 ## How GitHub selects default files
 
 GitHub uses a supported file from the target repository when that file exists.
 For supported files with more than one valid location, GitHub checks `.github/`, the repository root, then `docs/`.
 If the target repository has no matching file, GitHub uses the default from `eliware/.github`.
+GitHub applies the same location order in this repository.
 
 Issue templates follow a special rule.
-If a target repository has an issue template or `config.yml` in its own `.github/ISSUE_TEMPLATE/` folder, GitHub does not use this repository's templates.
+If a target repository has a valid issue template or template configuration in its `.github/ISSUE_TEMPLATE/` folder, GitHub does not use this repository's issue templates.
 GitHub reads issue templates from the target repository's default branch.
 
 ## Override shared content
@@ -42,16 +43,25 @@ GitHub then uses the target repository's templates rather than this repository's
 
 ## Use the release checklist
 
-Use the release checklist to record readiness and link to release records.
+Use the [release checklist](../.github/ISSUE_TEMPLATE/release-checklist.yml) to record readiness and link to release records.
 The checklist does not grant release or deployment authorization.
 
 1. Open the target repository's issue chooser.
 2. Select the release checklist when GitHub offers it.
-3. Record the repository, version, owner, target, and release scope.
-4. Record the candidate commit and check results as the release work proceeds.
-5. Follow your organization's release process for roles, approval, and handoff.
+3. Set the issue type to Release when GitHub offers issue types.
+4. Record the repository, project owner, version, target, and release scope.
+5. Record the full candidate commit and project check results.
+6. Keep inspection and publication fields with their listed owners.
+7. Follow your organization's release process for roles, approval, and handoff.
 
-If GitHub does not offer the checklist, check if the target repository has its own issue templates or template configuration.
+For a GHCR release, the checklist asks DevOps to open and link a separate GitOps issue.
+Include the source SHA, image digest, image pin, and deployment request.
+DevOps closes the release checklist after publication and records deployment results on that issue.
+
+If a release does not publish a GHCR image, select the matching checklist option.
+The GitOps steps do not apply.
+
+If GitHub does not offer the checklist, check for templates or template configuration in the target repository.
 If the target repository needs a project-specific release checklist, maintain that checklist in the target repository.
 
 ## View the organization profile

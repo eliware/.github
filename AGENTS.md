@@ -2,11 +2,11 @@
 
 ## Project
 
-Read [README.md](README.md) for the purpose, owner, and scope of this repository.
+This repository supplies shared GitHub community health files and the Eliware organization profile. Eliware owns this repository.
 
 ## Scope and boundaries
 
-Keep each requirement in its owning specification.
+Maintain shared files and the public organization profile here. Keep project-specific rules in each target repository.
 
 ## Layout
 
@@ -14,8 +14,7 @@ Read [README.md](README.md), [docs/README.md](docs/README.md), and [specs/README
 
 ## Development
 
-Give each source and test module one cohesive purpose.
-Split a module when its behavior, tests, or reasons for change show more than one responsibility.
+Keep the shared-file guide accurate when the provided files or their GitHub behavior change.
 
 ## Validation
 

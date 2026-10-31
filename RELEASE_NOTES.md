@@ -1,5 +1,13 @@
 # Release Notes
 
+## 15.1.0 — 2026-10-31
+
+### Changed
+
+- Set the package version to 15.1.0.
+- Update `@eliware/test` to 15.1.0 and refresh the dependency lockfile.
+- Clarify default file selection, local issue template overrides, and the release checklist's separate GitOps issue for GHCR releases.
+
 ## 15.0.1 — 2026-10-26
 
 ### Changed
