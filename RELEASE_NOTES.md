@@ -4,9 +4,11 @@
 
 ### Changed
 
-- Set the package version to 15.1.0.
-- Update `@eliware/test` to 15.1.0 and refresh the dependency lockfile.
-- Clarify default file selection, local issue template overrides, and the release checklist's separate GitOps issue for GHCR releases.
+- Set the package version and update `@eliware/test` to 15.1.0.
+- Refresh the dependency lockfile for the updated test tool and its dependencies.
+- Clarify default file precedence, local issue template overrides, and public profile placement in the shared-files guide.
+- Document release checklist steps and the separate GitOps issue for GHCR releases. Record the source SHA, image digest, pin, deployment request, and results.
+- Align AGENTS.md with repository purpose, owner, scope, and guide maintenance. Remove guidance for source and test modules. This repository has no such modules.
 
 ## 15.0.1 — 2026-10-26
 
