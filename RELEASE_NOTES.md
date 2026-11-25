@@ -4,11 +4,15 @@
 
 ### Added
 
-- Add the NAS Knit deployment target and run the repository checks after deployment.
+- Add seven repository skills and a validator for their metadata.
+- Run skill validation in GitHub Actions and both Knit deployment targets.
+- Add the NAS Knit deployment target and run repository checks there.
 
 ### Changed
 
-- Update `@eliware/test` to 15.2.0 and refresh the dependency lockfile.
+- Set the package version to 15.2.0 and update `@eliware/test` to 15.2.0.
+- Refresh the lockfile and add a YAML parser for skill validation.
+- Allow `.env.example` exceptions at the root and nested paths.
 
 ## 15.1.0 — 2026-10-31
 
