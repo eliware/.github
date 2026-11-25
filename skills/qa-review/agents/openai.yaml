@@ -1,0 +1,6 @@
+interface:
+  display_name: "QA Inspection"
+  short_description: "Hand off a release for QA inspection"
+
+policy:
+  allow_implicit_invocation: false

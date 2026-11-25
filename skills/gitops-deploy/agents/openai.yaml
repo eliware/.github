@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitOps"
+  short_description: "Hand off deployment to GitOps"
+
+policy:
+  allow_implicit_invocation: false

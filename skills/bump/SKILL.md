@@ -1,11 +1,11 @@
 ---
 name: "\u0062ump"
-description: Prepare npm releases with dependency updates, a version update, refreshed notes, tests, commits, pushes, and tagit preflight.
+description: Prepare npm releases with dependency updates, a package version, release notes, tests, commits, pushes, and TagIt preflight.
 ---
 
 # Prepare an npm release
 
-Use this skill when the user asks to update an npm package and prepare its release. Apply it across repositories that use npm and `tagit`.
+Use this skill only when the user invokes `$bump` or requests this skill by name.
 
 ## Inspect the repository
 
@@ -26,7 +26,7 @@ Use this skill when the user asks to update an npm package and prepare its relea
 Use semantic versions in `MAJOR.MINOR.PATCH` format. Let `T` be the latest stable Git tag. Let `E` be the installed `eliware/test` version.
 
 - If `T` and `E` share major and minor numbers, use `T`'s major and minor numbers. Increase `T`'s patch by one.
-- If their major or minor numbers change, use the full `E` version.
+- If the major or minor numbers do not match, use the full `E` version.
 - If `package.json` currently has the target version, keep it. If not, set `package.json` and the npm lockfile to the target, regardless of its current version.
 - If the target sorts lower than `T`, stop and describe the conflict before changing the version.
 - Report `T`, `E`, and the target version in the final summary.
@@ -40,9 +40,9 @@ Use semantic versions in `MAJOR.MINOR.PATCH` format. Let `T` be the latest stabl
 
 ## Test and fix
 
-1. Run `npm test` after dependency and release entry updates.
-2. If tests fail, read their output. Fix issues caused by updated dependencies or new `eliware/test` requirements. Follow exact fixes from the test output.
-3. After each fix, run `npm test` again. Continue until tests pass or the failure lacks a safe, proof-based fix.
+1. Run `npm test` after dependency updates and after you update `RELEASE_NOTES.md`.
+2. If tests fail, read their output. Fix issues caused by updated dependencies or new `eliware/test` requirements. Follow fixes described by the test output.
+3. After each fix, run `npm test` again. Continue until tests pass or the failure lacks a safe, evidence-based fix.
 4. Do not commit or push while `npm test` fails.
 
 ## Commit, push, and preflight
@@ -51,7 +51,7 @@ Use semantic versions in `MAJOR.MINOR.PATCH` format. Let `T` be the latest stabl
 2. Create a commit that follows the repository's message style. Push the current branch.
 3. Run `tagit preflight`. It runs tests and checks CI. Do not check CI separately when preflight succeeds.
 4. If preflight reports a CI failure, inspect the CI logs. Fix the cause, run `npm test`, commit and push the fix, then run preflight again.
-5. Continue when each failure gives a exact, actionable fix. If CI fails externally, logs are unavailable, or the same failure repeats, stop and report the blocker.
+5. Continue when each failure has an actionable fix. If CI fails externally, logs are unavailable, or the same failure repeats, stop and report the blocker.
 6. Summarize the target version, dependency updates, test result, commit and push result, and preflight result.
 
 ## Release restrictions
