@@ -5,6 +5,7 @@
 ### Added
 
 - Add seven repository skills and a validator for their metadata.
+- Add six skills for role handoffs and open issue lists.
 - Run skill validation in GitHub Actions and both Knit deployment targets.
 - Add the NAS Knit deployment target and run repository checks there.
 
@@ -13,6 +14,7 @@
 - Set the package version to 15.2.0 and update `@eliware/test` to 15.2.0.
 - Refresh the lockfile and add a YAML parser for skill validation.
 - Allow `.env.example` exceptions at the root and nested paths.
+- Refine release skills for role handoffs, checklist status, and issue work.
 
 ## 15.1.0 — 2026-10-31
 
