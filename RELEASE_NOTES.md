@@ -1,5 +1,15 @@
 # Release Notes
 
+## 15.2.0 — 2026-11-24
+
+### Added
+
+- Add the NAS Knit deployment target and run the repository checks after deployment.
+
+### Changed
+
+- Update `@eliware/test` to 15.2.0 and refresh the dependency lockfile.
+
 ## 15.1.0 — 2026-10-31
 
 ### Changed

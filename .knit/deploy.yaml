@@ -9,6 +9,7 @@ on:
           - git pull
           - npm ci
           - npm test
+          - npm run validate:skills
       - target: nas
         cwd: /eliware/.github
         timeoutMs: 300000
@@ -16,3 +17,4 @@ on:
           - git pull
           - npm ci
           - npm test
+          - npm run validate:skills

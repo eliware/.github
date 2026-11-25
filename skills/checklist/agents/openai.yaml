@@ -1,0 +1,6 @@
+interface:
+  display_name: "Checklist"
+  short_description: "Create a release readiness issue"
+
+policy:
+  allow_implicit_invocation: false

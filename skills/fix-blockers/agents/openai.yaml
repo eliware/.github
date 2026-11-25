@@ -1,0 +1,6 @@
+interface:
+  display_name: "Fix Blockers"
+  short_description: "Resolve release blockers and refresh review"
+
+policy:
+  allow_implicit_invocation: false

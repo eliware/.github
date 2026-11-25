@@ -1,0 +1,6 @@
+interface:
+  display_name: "Release Notes"
+  short_description: "Prepare and validate release notes"
+
+policy:
+  allow_implicit_invocation: false

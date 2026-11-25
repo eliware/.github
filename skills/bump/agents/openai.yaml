@@ -1,0 +1,6 @@
+interface:
+  display_name: "Bump"
+  short_description: "Prepare an npm package bump"
+
+policy:
+  allow_implicit_invocation: false
