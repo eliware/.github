@@ -1,6 +1,6 @@
 ---
 name: gitops-deploy
-description: Hand off a release checklist issue for GitOps deployment using the GitOps runbook.
+description: Hand off a release checklist issue for GitOps deployment using the GitOps skill.
 ---
 
 # GitOps operations handoff
@@ -9,8 +9,8 @@ Run this skill only when the user explicitly invokes `$gitops-deploy` and suppli
 
 Use the supplied issue URL as the Operations handoff for this role.
 
-Read and follow the [GitOps desired-state promotion runbook](https://github.com/eliware/gitops/blob/main/runbooks/desired-state-promotion.yaml). Use that runbook as the source of truth for the procedure.
-Do not copy runbook steps into this skill.
+Read and follow the [GitOps desired-state promotion skill](https://github.com/eliware/gitops/blob/main/skills/desired-state-promotion/SKILL.md). Use that skill as the source of truth for the procedure.
+Do not copy the skill steps into this skill.
 
 ## Release restrictions
 

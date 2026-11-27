@@ -1,6 +1,6 @@
 ---
 name: devops-release
-description: Hand off a release checklist issue for DevOps release using the DevOps runbook.
+description: Hand off a release checklist issue for DevOps release using the DevOps skill.
 ---
 
 # DevOps operations handoff
@@ -9,8 +9,8 @@ Run this skill only when the user explicitly invokes `$devops-release` and suppl
 
 Use the supplied issue URL as the Operations handoff for this role.
 
-Read and follow the [DevOps release runbook](https://github.com/eliware/devops/blob/main/runbooks/devops-release-chain.yaml). Use that runbook as the source of truth for the procedure.
-Do not copy runbook steps into this skill.
+Read and follow the [DevOps release skill](https://github.com/eliware/devops/blob/main/skills/devops-release-chain/SKILL.md). Use that skill as the source of truth for the procedure.
+Do not copy the skill steps into this skill.
 
 ## Release restrictions
 
